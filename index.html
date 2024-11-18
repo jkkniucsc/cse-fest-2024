@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKKNIU CSE Fest 2024 - CTF Teams List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+    
+        .logo {
+            max-height: 100px;
+        }
+    
+        .header {
+            background-color: #005f69;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+    
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    
+        .header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+    
+        .table-container {
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .table th {
+            background-color: #2c1d99;
+            color: white;
+        }
+    
+        .table td,
+        .table th {
+            text-align: center;
+            vertical-align: middle;
+        }
+    
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #dff9fb;
+        }
+    
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #c7ecee;
+        }
+    
+        /* Adding transition and hover animation */
+        .table tbody tr {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .table tbody tr:hover {
+            transform: scale(1.02); /* Slightly zoom in */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow */
+            background-color: #f6e58d; /* Change background color */
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class=" header container py-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Left: JKKNIU Logo -->
+            <img src="jkkniu.png" alt="JKKNIU Logo" class="logo" style="height: 80px;">
+    
+            <!-- Center: Text -->
+            <div class="text-center">
+                <h1 class="mb-1">JKKNIU CSE FEST 2024</h1>
+                <h2 class="mb-0">Capture the Flag (CTF) Teams List</h2>
+            </div>
+    
+            <!-- Right: Cyber Security Club Logo -->
+            <img src="csc.jpg" alt="Cyber Security Club Logo" class="logo" style="height: 80px;">
+        </div>
+    </div>
+    
+    <div class="table-container">
+        <div class="container">
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Member-1</th>
+                        <th>Member-2</th>
+                        <th>Member-3</th>
+                    </tr>
+                </thead>
+                <tbody id="teams-table-body">
+                    <!-- Rows will be dynamically generated -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script>
+const teams = [
+    { name: "Team-1", member1: "Era (15th)", member2: "Monir (17th)", member3: "Ashraful (18th)" },
+    { name: "Team-2", member1: "Lutfia (16th)", member2: "Nadim (17th)", member3: "Apon (18th)" },
+    { name: "Team-3", member1: "Monisa(15th)", member2: "Ruma (16th)", member3: "Tamanna (18th)" },
+    { name: "Team-4", member1: "Noornabi (15th)", member2: "Najmin (16th)", member3: "Joy (18th)" },
+    { name: "Team-5", member1: "Reyajul (16th)", member2: "Ishtiyak (17th)", member3: "Abir (18th)" },
+    { name: "Team-6", member1: "Shakila (16th)", member2: "Siam (17th)", member3: "Siam (18th)" },
+    { name: "Team-7", member1: "Afrida (14th)", member2: "Saurob (17th)", member3: "Rifat (18th)" },
+    { name: "Team-8", member1: "Mridula (15th)", member2: "Zahidul (17th)", member3: "Antar (18th)" },
+    { name: "Team-9", member1: "Azmira (16th)", member2: "Shakib (17th)", member3: "Fatema (18th)" },
+    { name: "Team-10", member1: "Biplob (16th)", member2: "Shuvo (17th)", member3: "Anik (18th)" },
+    { name: "Team-11", member1: "Lamia (15th)", member2: "Akash (17th)", member3: "Sara (18th)" },
+    { name: "Team-12", member1: "Sonia (14th)", member2: "Shazid (16th)", member3: "Ashish (18th)" },
+    { name: "Team-13", member1: "Nabeel (15th)", member2: "Sadia Jjua (16th)", member3: "Azizul (18th)" },
+    { name: "Team-14", member1: "Rahul (16th)", member2: "Poushie (17th)", member3: "Shishir (18th)" },
+    { name: "Team-15", member1: "Avishek (15th)", member2: "Raihan (17th)", member3: "Nasim (18th)" },
+    { name: "Team-16", member1: "Lutfia (16th)", member2: "Sadia (17th)", member3: "Mujaffar (18th)" },
+    { name: "Team-17", member1: "Zinnia (15th)", member2: "Kusuma (16th)", member3: "Shibly (18th)" },
+    { name: "Team-18", member1: "Tanim (16th)", member2: "Mim (17th)", member3: "Naeem (18th)" },
+    { name: "Team-19", member1: "Shafin (16th)", member2: "Eity (17th)", member3: "Sohana (18th)" },
+    { name: "Team-20", member1: "Antor (15th)", member2: "Prity (17th)", member3: "Tauhidul (18th)" },
+    { name: "Team-21", member1: "Ratul (16th)", member2: "Sumaya (17th)", member3: "Nabil (18th)" },
+    { name: "Team-22", member1: "Saikat (15th)", member2: "Mahir (17th)", member3: "Jubayer (18th)" },
+    { name: "Team-23", member1: "Moumita (16th)", member2: "Prapty (17th)", member3: "Dipta (18th)" },
+    { name: "Team-24", member1: "Shakib (16th)", member2: "Rokeya (16th)", member3: "Khaled (18th)" },
+    { name: "Team-25", member1: "Tamjid (15th)", member2: "Omayer Babu (16th)", member3: "Fahim (18th)" },
+    { name: "Team-26", member1: "Khairul (16th)", member2: "Rabby (17th)", member3: "Pranto (18th)" },
+    { name: "Team-27", member1: "Nafiza (16th)", member2: "Saif (17th)", member3: "Tirtha (18th)" },
+    { name: "Team-28", member1: "Tuhin (15th)", member2: "Rudra (16th)", member3: "Khalid (18th)" },
+    { name: "Team-29", member1: "Shanta (14th)", member2: "Sneha (17th)", member3: "Othir (18th)" }
+];
+
+
+        function generateTableRows() {
+            const tbody = document.getElementById('teams-table-body');
+            teams.forEach(team => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${team.name}</td>
+                    <td>${team.member1}</td>
+                    <td>${team.member2}</td>
+                    <td>${team.member3}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Generate the table rows on page load
+        document.addEventListener('DOMContentLoaded', generateTableRows);
+    </script>
+</body>
+
+</html>
